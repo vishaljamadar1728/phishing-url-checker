@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phishing URL Checker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🛡️ Phishing URL Checker</h1>
+    <p>Check whether a link is safe before you click it</p>
+  </header>
+
+  <main>
+    <section class="checker">
+      <input type="text" id="urlInput" placeholder="Paste a URL here (e.g. http://paypal-login.verify.com)">
+      <button id="checkBtn">Check URL</button>
+    </section>
+
+    <section id="result" class="result hidden">
+      <h2 id="verdict"></h2>
+      <div class="meter"><div id="meterFill"></div></div>
+      <p id="scoreText"></p>
+      <ul id="reasons"></ul>
+    </section>
+
+    <section class="tips">
+      <h2>How to Avoid Phishing</h2>
+      <ul id="tipsList"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built using concepts from Cisco Networking Academy: Introduction to Cybersecurity</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

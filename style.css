@@ -1,0 +1,201 @@
+:root {
+  --bg: #0b1220;
+  --card: #131c31;
+  --border: #243252;
+  --accent: #22d3ee;
+  --accent-hover: #67e8f9;
+  --text: #e8eefc;
+  --text-soft: #8fa3c7;
+  --on-accent: #06202a;
+
+  --safe: #22c55e;
+  --warn: #f59e0b;
+  --danger: #ef4444;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  text-align: center;
+  padding: 44px 16px 30px;
+  background: linear-gradient(135deg, #0f2a47 0%, #0b1220 70%);
+  border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  color: var(--accent);
+}
+
+header p {
+  color: var(--text-soft);
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Input + button */
+.checker {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.checker input {
+  flex: 1;
+  padding: 14px 16px;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.checker input::placeholder {
+  color: #5d7094;
+}
+
+.checker input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.15);
+}
+
+.checker button {
+  padding: 14px 26px;
+  border: none;
+  border-radius: 10px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s, background 0.2s;
+}
+
+.checker button:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+/* Result card */
+.result {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 6px solid var(--accent);
+  border-radius: 12px;
+  padding: 22px;
+  margin-bottom: 24px;
+}
+
+.hidden {
+  display: none;
+}
+
+.result h2 {
+  margin-bottom: 12px;
+}
+
+.meter {
+  width: 100%;
+  height: 14px;
+  background: #0b1220;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+#meterFill {
+  height: 100%;
+  width: 0%;
+  background: var(--safe);
+  border-radius: 999px;
+  transition: width 0.5s ease, background 0.5s ease;
+}
+
+#scoreText {
+  color: var(--text-soft);
+  margin-bottom: 12px;
+}
+
+#reasons {
+  padding-left: 20px;
+}
+
+#reasons li {
+  margin-bottom: 6px;
+}
+
+/* Verdict colors (JS inki class lagayega) */
+.result.safe       { border-left-color: var(--safe); }
+.result.suspicious { border-left-color: var(--warn); }
+.result.danger     { border-left-color: var(--danger); }
+
+.result.safe #meterFill       { background: var(--safe); }
+.result.suspicious #meterFill { background: var(--warn); }
+.result.danger #meterFill     { background: var(--danger); }
+
+/* Tips */
+.tips {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px;
+}
+
+.tips h2 {
+  margin-bottom: 12px;
+  color: var(--accent);
+}
+
+.tips ul {
+  padding-left: 20px;
+}
+
+.tips li {
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+footer {
+  text-align: center;
+  padding: 20px 16px;
+  color: var(--text-soft);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border);
+}
+
+/* Mobile */
+@media (max-width: 500px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .checker {
+    flex-direction: column;
+  }
+
+  .checker button {
+    width: 100%;
+  }
+}
